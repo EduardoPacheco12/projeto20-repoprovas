@@ -1,3 +1,2 @@
-# Template TypeScript 
+# RepoProvas 📚
 
-<p>Este é um template básico de TypeScript para ajuda nos projetos futuros</p>
