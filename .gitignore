@@ -1,3 +1,4 @@
 .env
 .wakatime-project
 node_modules
+.gitignore
