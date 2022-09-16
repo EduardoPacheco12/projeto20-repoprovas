@@ -8,15 +8,15 @@ interface decodedId {
 export async function validateTokenMiddleware(req: Request, res: Response, next: NextFunction) {
   const authorization: string | undefined = req.headers.authorization;
   if (!authorization) {
-    return res.status(404).send('Token not found');
+    throw { type: 'not_found', message: 'Token not found' };
   }
 
   const token = authorization?.replace('Bearer ', '');
   jwt.verify(token, process.env.SECRET, function (err, decoded) {
     if (err) {
-      return res.sendStatus(401);
+      throw { type: 'unauthorized', message: 'unauthorized' };
     }
-    res.locals.id = decoded as decodedId['id'];
+    res.locals.id = decoded;
     next();
   });
 }
