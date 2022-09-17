@@ -1,4 +1,4 @@
-import { client } from '../databases/postgres.js';
+import { client } from '../databases/postgres';
 
 export async function searchCategory(category: string) {
   return await client.categories.findUnique({

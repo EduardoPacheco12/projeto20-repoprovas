@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import * as testService from '../services/testService.js';
-import { testsBody } from '../types/testTypes.js';
+import * as testService from '../services/testService';
+import { testsBody } from '../types/testTypes';
 
 export async function createTest(req: Request, res: Response) {
   const body: testsBody = req.body;

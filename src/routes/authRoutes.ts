@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { signUp, signIn } from '../controllers/authController.js';
-import { validateSchemaMiddleware } from '../middlewares/validateSchema.js';
-import { signInSchema, signUpSchema } from '../schemas/authSchema.js';
+import { signUp, signIn } from '../controllers/authController';
+import { validateSchemaMiddleware } from '../middlewares/validateSchema';
+import { signInSchema, signUpSchema } from '../schemas/authSchema';
 
 const router = Router();
 

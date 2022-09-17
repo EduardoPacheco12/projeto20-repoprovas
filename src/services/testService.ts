@@ -1,11 +1,11 @@
-import * as testRepository from '../repositories/testRepository.js';
+import * as testRepository from '../repositories/testRepository';
 import {
   categoriesPrismaSchema,
   disciplinesPrismaSchema,
   teachersDisciplinesPrismaSchema,
   teachersPrismaSchema,
   testsBody,
-} from '../types/testTypes.js';
+} from '../types/testTypes';
 
 export async function createTest(body: testsBody) {
   const name: string = body.name;
@@ -14,25 +14,25 @@ export async function createTest(body: testsBody) {
   const discipline: string = body.discipline;
   const teacher: string = body.teacher;
 
-  const verifyCategory: categoriesPrismaSchema = await testRepository.searchCategory(category);
+  const verifyCategory: categoriesPrismaSchema = (await testRepository.searchCategory(category))!;
   if (!verifyCategory) {
     throw { type: 'not_found', message: 'Category not found' };
   }
 
-  const verifyTeacher: teachersPrismaSchema = await testRepository.searchTeacher(teacher);
+  const verifyTeacher: teachersPrismaSchema = (await testRepository.searchTeacher(teacher))!;
   if (!verifyTeacher) {
     throw { type: 'not_found', message: 'Teacher not found' };
   }
 
-  const verifyDiscipline: disciplinesPrismaSchema = await testRepository.searchDiscipline(discipline);
+  const verifyDiscipline: disciplinesPrismaSchema = (await testRepository.searchDiscipline(discipline))!;
   if (!verifyDiscipline) {
     throw { type: 'not_found', message: 'Discipline not found' };
   }
 
-  const verifyTeachersDisciplines: teachersDisciplinesPrismaSchema = await testRepository.searchTeachersDisciplines(
+  const verifyTeachersDisciplines: teachersDisciplinesPrismaSchema = (await testRepository.searchTeachersDisciplines(
     verifyTeacher.id,
     verifyDiscipline.id
-  );
+  ))!;
   if (!verifyTeachersDisciplines) {
     throw { type: 'not_found', message: 'This teacher is not teaching this discipline' };
   }

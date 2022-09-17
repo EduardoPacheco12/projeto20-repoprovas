@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { testsBody } from '../types/testTypes.js';
+import { testsBody } from '../types/testTypes';
 
 export const testSchema = Joi.object<testsBody>({
   name: Joi.string().required(),

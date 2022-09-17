@@ -1,4 +1,4 @@
-import { client } from '../databases/postgres.js';
+import { client } from '../databases/postgres';
 
 export async function verifyEmail(email: string) {
   return await client.users.findUnique({

@@ -12,7 +12,7 @@ export async function validateTokenMiddleware(req: Request, res: Response, next:
   }
 
   const token = authorization?.replace('Bearer ', '');
-  jwt.verify(token, process.env.SECRET, function (err, decoded) {
+  jwt.verify(token, process.env.SECRET!, function (err, decoded) {
     if (err) {
       throw { type: 'unauthorized', message: 'unauthorized' };
     }

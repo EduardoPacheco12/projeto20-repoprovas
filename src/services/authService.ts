@@ -1,5 +1,5 @@
 import { signInBody, signUpBody, usersPrismaSchema } from '../types/authTypes';
-import * as authRepository from '../repositories/authRepository.js';
+import * as authRepository from '../repositories/authRepository';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -21,7 +21,7 @@ export async function signIn(body: signInBody) {
   const email: string = body.email;
   const password: string = body.password;
 
-  const verifyEmail: usersPrismaSchema = await authRepository.verifyEmail(email);
+  const verifyEmail: usersPrismaSchema = (await authRepository.verifyEmail(email))!;
   if (!verifyEmail) {
     throw { type: 'not_found', message: 'Email not found' };
   }
@@ -32,7 +32,7 @@ export async function signIn(body: signInBody) {
     throw { type: 'unauthorized', message: 'Wrong password, try again' };
   }
 
-  const token = jwt.sign({ id }, process.env.SECRET, {
+  const token = jwt.sign({ id }, process.env.SECRET!, {
     expiresIn: 10800, //3h
   });
 

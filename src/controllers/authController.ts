@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { signInBody, signUpBody } from '../types/authTypes';
-import * as authService from '../services/authService.js';
+import * as authService from '../services/authService';
 
 export async function signUp(req: Request, res: Response) {
   const body: signUpBody = req.body;

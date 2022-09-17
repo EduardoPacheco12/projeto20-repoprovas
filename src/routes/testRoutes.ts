@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { createTest } from '../controllers/testController.js';
-import { validateSchemaMiddleware } from '../middlewares/validateSchema.js';
-import { validateTokenMiddleware } from '../middlewares/validateToken.js';
-import { testSchema } from '../schemas/testSchema.js';
+import { createTest } from '../controllers/testController';
+import { validateSchemaMiddleware } from '../middlewares/validateSchema';
+import { validateTokenMiddleware } from '../middlewares/validateToken';
+import { testSchema } from '../schemas/testSchema';
 
 const router = Router();
 
