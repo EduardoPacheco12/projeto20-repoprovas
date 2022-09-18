@@ -7,6 +7,10 @@ import { createTest } from './factories/testFactories';
 const agent = supertest(app);
 
 describe('Test POST /repoprovas/tests/create', () => {
+  beforeEach(async () => {
+    await client.$executeRaw`TRUNCATE TABLE "tests" RESTART IDENTITY`;
+  });
+
   it('Should return 201 if registered an test in the correct format', async () => {
     const user = await createUser();
     const register = await agent.post('/repoprovas/sign-up').send(user);
@@ -60,5 +64,9 @@ describe('Test POST /repoprovas/tests/create', () => {
       .send(test);
 
     expect(response.status).toEqual(422);
+  });
+
+  afterAll(async () => {
+    await client.$disconnect();
   });
 });
