@@ -39,3 +39,9 @@ export async function createTest(body: testsBody) {
 
   await testRepository.insertTest(name, pdfUrl, verifyCategory.id, verifyTeachersDisciplines.id);
 }
+
+export async function getTestsDisciplines() {
+  const result = await testRepository.searchTestsDisciplines();
+
+  return result;
+}

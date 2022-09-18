@@ -43,3 +43,36 @@ export async function insertTest(name: string, pdfUrl: string, categoryId: numbe
     },
   });
 }
+
+export async function searchTestsDisciplines() {
+  return client.terms.findMany({
+    select: {
+      number: true,
+      disciplines: {
+        select: {
+          name: true,
+          teachersDisciplines: {
+            select: {
+              tests: {
+                select: {
+                  name: true,
+                  pdfUrl: true,
+                  categories: {
+                    select: {
+                      name: true,
+                    },
+                  },
+                },
+              },
+              teachers: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+}
