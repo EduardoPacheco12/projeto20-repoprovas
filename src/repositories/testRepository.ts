@@ -76,3 +76,26 @@ export async function searchTestsDisciplines() {
     },
   });
 }
+
+export async function searchTestsTeachers() {
+  return client.teachers.findMany({
+    select: {
+      name: true,
+      teachersDisciplines: {
+        select: {
+          disciplines: {
+            select: {
+              name: true,
+            },
+          },
+          tests: {
+            select: {
+              name: true,
+              categories: true,
+            },
+          },
+        },
+      },
+    },
+  });
+}
