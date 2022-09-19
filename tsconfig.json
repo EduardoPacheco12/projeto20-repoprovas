@@ -6,7 +6,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "./src/dist"
+    "outDir": "./src/dist/src"
   },
   "ts-node": {
     "esm": true
