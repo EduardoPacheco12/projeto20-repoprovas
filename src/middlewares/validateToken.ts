@@ -16,7 +16,7 @@ export async function validateTokenMiddleware(req: Request, res: Response, next:
     if (err) {
       throw { type: 'unauthorized', message: 'unauthorized' };
     }
-    res.locals.id = decoded;
+    res.locals.id = (decoded as decodedId).id;
     next();
   });
 }
