@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "build": "tsc",
+    "start": "ts-node dist/src/server.ts",
     "dev-start": "nodemon src/server.ts",
     "test": "jest --no-cache"
   },
