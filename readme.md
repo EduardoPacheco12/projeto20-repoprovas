@@ -5,8 +5,7 @@
 </p>
 
 <p align = "center">
-   <img src="https://img.shields.io/badge/author-Eduardo Oliveira Pacheco-4dae71?style=flat-square" />
-   <img src="https://img.shields.io/github/languages/count/SEU_NOME/NOME_DO_PROJETO?color=054e8f&style=flat-square" />
+	<img src="https://img.shields.io/badge/author-Eduardo Oliveira Pacheco-4dae71?style=flat-square" />
 </p>
 
 ## 📋 Descrição
@@ -47,11 +46,11 @@
 - Rota para fazer login
 
 ```yml
-	headers: {},
-	body: {
-		"email": "lorem@gmail.com",
-		"senha": "loremipsum"
-	}
+headers: {},
+body: {
+	"email": "lorem@gmail.com",
+	"senha": "loremipsum"
+}
 ```
 
 ## 🚀 Rotas de Provas
@@ -73,8 +72,8 @@ body:
 ### <span style="color:yellow"> **GET** </span> /repoprovas/tests/disciplines
 
 ```yml
-	headers: { "Authorization": "Bearer $token" }
-	body: {}
+headers: { 'Authorization': 'Bearer $token' }
+body: {}
 ```
 
 ### <span style="color:yellow"> **GET** </span> /repoprovas/tests/teachers
